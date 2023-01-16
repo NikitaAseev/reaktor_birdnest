@@ -1,4 +1,5 @@
 import express from "express"
+import path from "path"
 import axios from "axios"
 import fetch from "node-fetch";
 import { XMLParser } from "fast-xml-parser"
@@ -12,6 +13,11 @@ app.get("/api", (req, res) => {
     res.send(violators);
 });
 
+app.use(express.static("build"));
+
+app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "build", "index.html"));
+});
 
 app.listen(port, () => {
     console.log(`Server listening on ${port}`);
