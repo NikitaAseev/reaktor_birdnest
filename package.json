@@ -5,10 +5,8 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start-ui": "cd birdnest && npm start",
-    "start-server": "node server/server.js",
-    "start": "npm run start-server",
-    "build": "npm install && cd birdnest && npm instal && npm run build",
+    "start": "node server.js",
+    "heroku-postbuild": "cd birdnest && npm install && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
