@@ -1,0 +1,31 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "heroku-postbuild": "cd birdnest && npm install && npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cd ../ui && npm instal && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NikitaAseev/reaktor_birdnest.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": { 
+    "url": "https://github.com/NikitaAseev/reaktor_birdnest/issues"
+  },
+  "homepage": "https://github.com/NikitaAseev/reaktor_birdnest#readme",
+  "dependencies": {
+    "axios": "^1.2.2",
+    "express": "^4.18.2",
+    "fast-xml-parser": "^4.0.13",
+    "node-fetch": "^3.3.0",
+    "react-xml-parser": "^1.1.8"
+  }
+}

@@ -1,30 +1,20 @@
 {
-  "name": "reaktorsummerjob",
-  "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
-  "type": "module",
-  "scripts": {
-    "start": "node server.js",
-    "heroku-postbuild": "cd birdnest && npm install && npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/NikitaAseev/reaktor_birdnest.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/NikitaAseev/reaktor_birdnest/issues"
-  },
-  "homepage": "https://github.com/NikitaAseev/reaktor_birdnest#readme",
-  "dependencies": {
-    "axios": "^1.2.2",
-    "express": "^4.18.2",
-    "fast-xml-parser": "^4.0.13",
-    "node-fetch": "^3.3.0",
-    "react-xml-parser": "^1.1.8"
+    "name": "birdnest",
+    "version": "1.0.0",
+    "description": "Full stack JS application",
+    "main": "index.js",
+    "scripts": {
+      "start-ui": "cd ui && npm start",
+      "start-server": "node server/index.js",
+      "start": "npm run start-server",
+      "build": "cd ui && npm instal && npm run build && cd ../server && npm install",
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Elena Aseeva",
+    "license": "ISC",
+    "dependencies": {
+    },
+    "engines": {
+      "node": "16.13.0"
+    }
   }
-}
