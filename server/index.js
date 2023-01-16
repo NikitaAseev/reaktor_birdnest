@@ -46,7 +46,6 @@ setInterval(
                             let distance = Math.round(Math.abs(x > y ? (250000 - x) / 1000 : (250000 - y) / 1000));
                             localPilots.push({ ...item.data, distance: distance })
                         })
-                        drones = [...localDrones]
 
                         violators = deleteOld(violators)
                         localPilots.forEach(item => {
@@ -58,10 +57,6 @@ setInterval(
                                 violators.push({ ...item, timeStamp: Date.now() })
                             }
                         })
-                        // drones = localDrones
-                        // app.post("/api", (req, res) => {
-                        //     res.send(drones)
-                        // })
                     })
                     .catch(e => console.log(e))
 
