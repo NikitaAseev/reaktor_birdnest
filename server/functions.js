@@ -1,3 +1,4 @@
+// Function that checks if a drone is in NDZ or not, according to it's coordinates
 export function isInNDZ(x, y) {
   x = Number(x)
   y = Number(y)
@@ -7,6 +8,8 @@ export function isInNDZ(x, y) {
   else return false
 }
 
+// Function, that checks each drone in an array if it's in the NDZ 
+// with isInNDZ function and returns new array with only the ones that are
 export function filterViolatingDrones(drones) {
   if (drones.length === 0) return []
   let violatingDrones = []
@@ -17,29 +20,15 @@ export function filterViolatingDrones(drones) {
   return violatingDrones
 }
 
-export function findPilots(drones) {
-  let url = "https://assignments.reaktor.com/birdnest/pilots/"
-  let promises = []
-  let localPilots = []
-  drones.forEach((item) => {
-    promises.push(axios.get(url + item.serialNumber))
-  })
-  Promise.all(promises)
-    .then(res => {
-      res.forEach((item, i) => {
-        let x = Number(drones[i].positionX)
-        let y = Number(drones[i].positionY)
-        let distance = Math.round(Math.abs(x > y ? (250000 - x) / 1000 : (250000 - y) / 1000));
-        localPilots.push({ ...item.data, distance: distance })
-      })
-      // setPilots([...localPilots])
-    })
-}
+// Function that checks if a pilot is in arr
 export function checkPilot(pilot, arr) {
   if (arr.find(({ pilotId }) => pilotId === pilot.pilotId)) return true
   else return false
 }
 
+
+// A function that checks each arr's element's timestamp and deletes all that are older than 10 minutes. 
+// Returns new array with only the fresh ones
 export function deleteOld(arr) {
   if (!arr) return []
   let curTime = Date.now()
