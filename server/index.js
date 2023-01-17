@@ -8,10 +8,9 @@ const app = express();
 const __dirname = path.resolve()
 const port = process.env.PORT || 3001;
 let violators = []
-let drones = []
 
 app.get("/api", (req, res) => {
-    res.send(violators);
+    res.send([...violators].reverse());
 });
 
 app.use(express.static(path.resolve(__dirname, "ui/build")));
